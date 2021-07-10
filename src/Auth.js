@@ -11,9 +11,9 @@ export default function Auth() {
         provider: 'facebook'
     })
       if (error) throw error
-      alert('Check your email for the login link!')
-    } catch (error) {
-      alert(error.error_description || error.message)
+      alert('Redirecting to Facebook');
+      console.log("user: ", user);
+      console.log("session: ", session)
     } finally {
       setLoading(false)
     }
