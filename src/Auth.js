@@ -4,14 +4,14 @@ import { supabase } from './supabaseClient'
 export default function Auth() {
   const [loading, setLoading] = useState(false)
 
-  const handleLogin = async () => {
+  const handleLogin = async (props) => {
     try {
       setLoading(true)
       const {user, session, error} = await supabase.auth.signIn({
-        provider: 'facebook'
+        provider: props.provider
     })
       if (error) throw error
-      alert('Redirecting to Facebook');
+      alert(`Redirecting to ${props.provider}`);
       console.log("user: ", user);
       console.log("session: ", session)
     } finally {
@@ -19,8 +19,7 @@ export default function Auth() {
     }
   }
 
-
-  return (
+  const signInButton = (props) => {
     <div className="row flex flex-center">
       <div className="col-6 form-widget">
         <h1 className="header">Supabase + React</h1>
@@ -32,7 +31,7 @@ export default function Auth() {
           <button
             onClick={(e) => {
               e.preventDefault()
-              handleLogin()
+              handleLogin(props)
             }}
             className={'button block'}
             disabled={loading}
@@ -42,5 +41,12 @@ export default function Auth() {
         </div>
       </div>
     </div>
+  }
+
+  return (
+    <>
+    {signInButton({"provider": "facebook"})}
+    {signInButton({"provider": "twitter"})}
+    </>
   )
 }
