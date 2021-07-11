@@ -3,7 +3,8 @@ import { supabase } from './supabaseClient'
 import Auth from './Auth'
 import Account from './Account'
 import { useEffect, useState } from 'react';
-import {Switch, Route, Link} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
+import Header from './components/Header';
 
 function App() {
   const [session, setSession] = useState(null);
@@ -19,10 +20,10 @@ function App() {
     
        <div className="App">
       <h1>PingTo</h1>
-      {!session ? <Auth/> : <Account key={session.user.id} session={session}/>}
+      {/* {!session ? <Auth/> : <Account key={session.user.id} session={session}/>} */}
       <Switch>
         <Route exact path="/"></Route>
-        <Route path="/"></Route>
+        <Route path="/header"> <Header/></Route>
         <Route path="/"></Route>
       </Switch>
     </div>
