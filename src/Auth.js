@@ -20,13 +20,7 @@ export default function Auth() {
   }
 
   const signInButton = (props) => {
-    <div className="row flex flex-center">
-      <div className="col-6 form-widget">
-        <h1 className="header">Supabase + React</h1>
-        <p className="description">Sign in via Facebook</p>
-        <div>
-        
-        </div>
+    return (
         <div>
           <button
             onClick={(e) => {
@@ -36,17 +30,19 @@ export default function Auth() {
             className={'button block'}
             disabled={loading}
           >
-            {loading ? <span>Loading</span> : <span>Sign in via Facebook</span>}
+            {loading ? <span>Loading</span> : <span>Sign in via {props.provider}</span>}
           </button>
         </div>
-      </div>
-    </div>
+    )
   }
 
   return (
-    <>
-    {signInButton({"provider": "facebook"})}
-    {signInButton({"provider": "twitter"})}
-    </>
+    <div className="row flex flex-center">
+      <div className="col-6 form-widget">
+        <h1 className="header">Supabase + React</h1>
+        {signInButton({"provider": "facebook"})}
+        {signInButton({"provider": "twitter"})}
+      </div>
+    </div>
   )
 }
