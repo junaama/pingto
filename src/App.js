@@ -20,7 +20,7 @@ function App() {
     
        <div className="App">
       <h1>PingTo</h1>
-      {/* {!session ? <Auth/> : <Account key={session.user.id} session={session}/>} */}
+      {!session ? <Auth/> : <Account key={session.user.id} session={session}/>}
       <Switch>
         <Route exact path="/"></Route>
         <Route path="/header"> <Header/></Route>

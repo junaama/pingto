@@ -14,7 +14,7 @@ import {
   ListItemIcon,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Link } from "react-router-dom";
 
 // IMPORTING ICONS
 // import MenuIcon from "@material-ui/icons/Menu";
