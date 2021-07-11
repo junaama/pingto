@@ -5,7 +5,7 @@ import Account from './Account'
 import { useEffect, useState } from 'react';
 import {Switch, Route} from 'react-router-dom'
 import Header from './components/Header';
-
+import EditProfile from './components/EditProfile';
 function App() {
   const [session, setSession] = useState(null);
 
@@ -24,7 +24,7 @@ function App() {
       <Switch>
         <Route exact path="/"></Route>
         <Route path="/header"> <Header/></Route>
-        <Route path="/"></Route>
+        <Route path="/profile"> <EditProfile/></Route>
       </Switch>
     </div>
     
